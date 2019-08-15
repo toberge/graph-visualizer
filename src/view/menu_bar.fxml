@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.input.KeyCodeCombination?>
+<MenuBar xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="view.MenuController"
+         fx:id="menuBar">
+    <Menu text="File">
+        <items>
+            <MenuItem text="Open" onAction="#handleOpen">
+                <accelerator>
+                    <KeyCodeCombination control="DOWN" code="O" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem text="Save" onAction="#handleSave" />
+            <MenuItem text="Save As" onAction="#handleSaveAs" />
+            <MenuItem text="Quit" onAction="#handleQuit">
+                <accelerator>
+                    <KeyCodeCombination control="DOWN" code="Q" />
+                </accelerator>
+            </MenuItem>
+
+        </items>
+    </Menu>
+</MenuBar>
