@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.control.Button?>
-<Pane fx:controller="view.MapController"
-      xmlns:fx="http://javafx.com/fxml" fx:id="mapPane">
+<Pane xmlns:fx="http://javafx.com/fxml"
+      fx:controller="view.MapController"
+      fx:id="mapPane">
 </Pane>

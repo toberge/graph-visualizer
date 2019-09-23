@@ -1,7 +1,10 @@
 package model;
 
 import data.Graph;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.File;
 
@@ -9,6 +12,9 @@ public class GraphModel {
 
     private final SimpleObjectProperty<Graph> graph = new SimpleObjectProperty<>(null);
     private final SimpleObjectProperty<Object> selectedItem = new SimpleObjectProperty<>(null);
+    private final ObservableList<Object> markedItems = FXCollections.observableArrayList();
+    private final SimpleIntegerProperty markedNow = new SimpleIntegerProperty(-1);
+    // TODO implement path marking that listens to this list and marks nodes and vertices accordingly
 
     public GraphModel() {
         if (!load(new File("graphs/test.graph"))) {
@@ -34,6 +40,10 @@ public class GraphModel {
 
     public void setSelectedItem(Object selectedItem) {
         this.selectedItem.set(selectedItem);
+    }
+
+    public ObservableList<Object> getMarkedItems() {
+        return markedItems;
     }
 
     public boolean load(File file) {

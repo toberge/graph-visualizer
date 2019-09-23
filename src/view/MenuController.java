@@ -1,7 +1,5 @@
 package view;
 
-import data.Graph;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.stage.FileChooser;
@@ -42,5 +40,9 @@ public class MenuController {
     public void handleQuit() {
         System.out.println("Quitting...");
         System.exit(0); // TODO exit softly
+    }
+
+    public void handleStepForward() {
+        System.out.println("TODO");
     }
 }

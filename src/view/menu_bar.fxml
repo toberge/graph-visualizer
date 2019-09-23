@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
 <?import javafx.scene.input.KeyCodeCombination?>
 <MenuBar xmlns="http://javafx.com/javafx"
@@ -15,17 +11,26 @@
         <items>
             <MenuItem text="Open" onAction="#handleOpen">
                 <accelerator>
-                    <KeyCodeCombination control="DOWN" code="O" />
+                    <KeyCodeCombination code="O" shift="UP" control="DOWN" alt="UP" meta="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
             <MenuItem text="Save" onAction="#handleSave" />
             <MenuItem text="Save As" onAction="#handleSaveAs" />
             <MenuItem text="Quit" onAction="#handleQuit">
                 <accelerator>
-                    <KeyCodeCombination control="DOWN" code="Q" />
+                    <KeyCodeCombination code="Q" shift="UP" control="DOWN" alt="UP" meta="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
 
+        </items>
+    </Menu>
+    <Menu text="Walk">
+        <items>
+            <MenuItem text="Step Forward" onAction="#handleStepForward">
+                <accelerator>
+                    <KeyCodeCombination code="SPACE" shift="UP" control="UP" alt="UP" meta="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
         </items>
     </Menu>
 </MenuBar>
