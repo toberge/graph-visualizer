@@ -1,31 +1,25 @@
 package data;
 
-public class Vertex {
+public class Vertex extends BasicVertex {
 
-    private final Node from, to;
+    private int x, y;
 
-    public Vertex(Node from, Node to) {
-        this.from = from;
-        this.to = to;
+    public static final int MAX_X = 160, MAX_Y = 120;
+
+    public Vertex(int x, int y) {
+        if (x < 0 || x > MAX_X ||
+            y < 0 || y > MAX_Y) {
+            throw new IllegalArgumentException("Coordinates not within bounds (" + MAX_X + ", " + MAX_Y + ").");
+        }
+        this.x = x;
+        this.y = y;
     }
 
-    public Node getFrom() {
-        return from;
+    public int getX() {
+        return x;
     }
 
-    public Node getTo() {
-        return to;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vertex vertex = (Vertex) o;
-        // TODO is this how equality should be decided here?
-        return getFrom().getX() == vertex.getFrom().getX() &&
-                getFrom().getY() == vertex.getFrom().getY() &&
-                getTo().getX() == vertex.getTo().getX() &&
-                getTo().getY() == vertex.getTo().getY();
+    public int getY() {
+        return y;
     }
 }

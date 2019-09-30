@@ -1,6 +1,6 @@
 package view;
 
-import data.Node;
+import data.Edge;
 import data.Vertex;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
@@ -52,11 +52,11 @@ public class MapController {
         // at 800x600 positions are scaled 5x, node radius is 15px and line width is 10.
         // radius and stroke properties change based on both height and width:
         // scale factor at 800x600 applied to both, added together and halved to get average.
-        for (Node node : model.getGraph().getNodes()) {
-            NodeCircle circle = new NodeCircle(mapPane, node);
+        for (Vertex vertex : model.getGraph().getVertices()) {
+            VertexCircle circle = new VertexCircle(mapPane, vertex);
             circles.add(circle);
-            for (Vertex vertex : node.getVertices()) {
-                VertexLine line = new VertexLine(mapPane, vertex);
+            for (Edge edge : vertex.getEdges()) {
+                EdgeLine line = new EdgeLine(mapPane, edge);
                 lines.add(line);
             }
         }

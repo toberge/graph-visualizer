@@ -9,33 +9,33 @@ import java.util.StringTokenizer;
 
 public class Graph {
 
-    int N, V;
-    Node[] nodes;
+    int V, E;
+    Vertex[] vertices;
 
-    public Graph(int n, int v, Node[] nodes) {
-        N = n;
+    public Graph(int v, int e, Vertex[] vertices) {
         V = v;
-        this.nodes = nodes;
-    }
-
-    public int getN() {
-        return N;
+        E = e;
+        this.vertices = vertices;
     }
 
     public int getV() {
         return V;
     }
 
-    public Node[] getNodes() {
-        return nodes;
+    public int getE() {
+        return E;
+    }
+
+    public Vertex[] getVertices() {
+        return vertices;
     }
 
     /**
      *
      * Format:
-     * N V --> N nodes, V vertices
-     * x y --> for node n of N, starts at n=0
-     * f t --> V vertices from node f to node t
+     * V E --> V nodes, E edges
+     * x y --> for node n of V, starts at n=0
+     * f t --> E edges from node f to node t
      *
      * @param file
      * @return
@@ -51,11 +51,11 @@ public class Graph {
             int N = Integer.parseInt(st.nextToken());
             int V = Integer.parseInt(st.nextToken());
 
-            // for positioned nodes...
-            Node[] nodes = new Node[N];
+            // for positioned vertices...
+            Vertex[] vertices = new Vertex[N];
             for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine()); // WTF
-                nodes[i] = new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+                vertices[i] = new Vertex(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
             }
 
             // realizing that things will be smoother with LinkedList instead of plain reference to next vertice...
@@ -63,12 +63,12 @@ public class Graph {
                 st = new StringTokenizer(br.readLine()); // WTF
                 int from = Integer.parseInt(st.nextToken());
                 int to = Integer.parseInt(st.nextToken());
-                Vertex vertex = new Vertex(nodes[from], nodes[to]);
-                nodes[from].getVertices().add(vertex);
-                nodes[to].getVertices().add(vertex);
+                Edge edge = new Edge(vertices[from], vertices[to]);
+                vertices[from].getEdges().add(edge);
+                vertices[to].getEdges().add(edge);
             }
 
-            graph = new Graph(N, V, nodes);
+            graph = new Graph(N, V, vertices);
 
 
         } catch (IOException | NumberFormatException | NoSuchElementException e) {
